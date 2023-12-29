@@ -12,13 +12,13 @@ A custom hook for resizing columns in a Material-UI DataGrid.
 
 ## Disclaimer
 
-This custom hook, `useColumnResizer`, directly manipulates the DOM to achieve its functionality. It adjusts the width of DataGrid columns by selecting elements with a specific `colIndex` attribute and modifying their width. While this approach provides the desired functionality, it's important to note that direct DOM manipulation is generally not recommended in React. 
+This [custom hook](https://github.com/bifurcaria/mui-column-resizer/blob/main/src/hooks/useColumnResizer.js), `useColumnResizer`, directly manipulates the DOM to achieve its functionality. It adjusts the width of DataGrid columns by selecting elements with a specific `colIndex` attribute and modifying their width. While this approach provides the desired functionality, it's important to note that direct DOM manipulation is generally not recommended in React. 
 
 React's philosophy encourages a declarative style of programming where the DOM is updated efficiently by React itself based on state and props. Direct manipulation of the DOM can lead to unexpected results and inconsistencies in the UI, especially when React's reconciliation process is not aware of the changes made. Therefore, use this hook with caution and consider exploring other methods, such as using the paid feature or adjusting column widths via state or props, if possible.
 
 ## Usage
 
-This custom React hook, `useColumnResizer`, is used to resize the columns of a MUI DataGrid component without using paid versions. Here's a breakdown of its usage:
+This [custom React hook](https://github.com/bifurcaria/mui-column-resizer/blob/main/src/hooks/useColumnResizer.js), `useColumnResizer`, is used to resize the columns of a MUI DataGrid component without using paid versions. Here's a breakdown of its usage:
 
 1. **Importing the Hook**: The hook is imported into a component where it's needed. The hook uses `useState`, `useEffect`, and `useRef` from React.
 
