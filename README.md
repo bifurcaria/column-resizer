@@ -1,40 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MUI Column resizer hook
 
-## Getting Started
+A custom hook for resizing columns in a Material-UI table.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [MUI Column resizer hook](#mui-column-resizer-hook)
+  
+  - [Table of Contents](#table-of-contents)
+  - [Disclaimer](#disclaimer)
+  - [Usage](#usage)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Disclaimer
+This custom hook, `useColumnResizer`, directly manipulates the DOM to achieve its functionality. It adjusts the width of DataGrid columns by selecting elements with a specific `colIndex` attribute and modifying their width. While this approach provides the desired functionality, it's important to note that direct DOM manipulation is generally not recommended in React. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+React's philosophy encourages a declarative style of programming where the DOM is updated efficiently by React itself based on state and props. Direct manipulation of the DOM can lead to unexpected results and inconsistencies in the UI, especially when React's reconciliation process is not aware of the changes made. Therefore, use this hook with caution and consider exploring other methods, such as using the paid feature or adjusting column widths via state or props, if possible.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This custom React hook, `useColumnResizer`, is used to resize the columns of a MUI DataGrid component without using paid versions. Here's a breakdown of its usage:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Importing the Hook**: The hook is imported into a component where it's needed. The hook uses `useState`, `useEffect`, and `useRef` from React.
 
-## Learn More
+2. **Initialization**: The hook is initialized with two parameters: `loading` and `initialValues`. `loading` is a boolean indicating whether the DataGrid is rendered yet. `initialValues` is an optional parameter that sets the initial minimum widths of the columns.
 
-To learn more about Next.js, take a look at the following resources:
+3. **State and Refs**: The hook uses `useState` to manage the state of `minWidths`, which stores the minimum widths of the columns. It uses `useRef` to create references to `isResizing` and `separatorRef`. `isResizing` is used to track which column is currently being resized (-1 indicates no column is being resized), and `separatorRef` is used to reference the separator element used for resizing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Constants**: `defaultMinWidth` and `defaultMaxWidth` are constants that define the minimum and maximum width a column can have.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. **adjustWidthColumn Function**: This function is used to adjust the width of a column. It takes in an `index` (the index of the column to resize) and `width` (the new width). It ensures the new width is within the defined min and max widths. It then selects all elements with a `colindex` attribute equal to the provided index and adjusts their width.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+6. **Classes Requirement**: The hook requires setting classes to the columns in the parent component. This can be achieved by using `cellClassName` and `headerClassName` props of the DataGrid component. The classes should be in the format: `colIndex-0`, `colIndex-1`, `colIndex-2`, etc.
