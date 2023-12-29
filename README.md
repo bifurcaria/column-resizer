@@ -1,6 +1,6 @@
 # MUI Column resizer hook
 
-A custom hook for resizing columns in a Material-UI table.
+A custom hook for resizing columns in a Material-UI DataGrid.
 
 ## Table of Contents
 
