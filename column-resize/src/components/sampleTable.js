@@ -13,9 +13,10 @@ const SampleTable = () => {
 
     let columns = [
         { field: 'id', headerName: 'ID' },
+        { field: 'icon', headerName: 'Icon' },
         { field: 'name', headerName: 'Name' },
         { field: 'email', headerName: 'Email' },
-        { field: 'age', headerName: 'Age' },
+    
     ];
     // add classes to each column
     columns = columns.map((column, index) => {
@@ -25,9 +26,9 @@ const SampleTable = () => {
     });
 
     const rows = [
-        { id: 1, name: 'John Doe', email: 'john.doe@example.com', age: 25 },
-        { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', age: 30 },
-        { id: 3, name: 'Bob Johnson', email: 'bob.johnson@example.com', age: 35 },
+        { id: 1, name: 'Frutilla', email: 'frutilla@fruta.com', icon: '🍓' },
+        { id: 2, name: 'Sandía', email: 'sandía@fruta.com', icon: '🍉' },
+        { id: 3, name: 'Plátano', email: 'plátano@fruta.com', icon: '🍌' },
     ];
 
     return (
