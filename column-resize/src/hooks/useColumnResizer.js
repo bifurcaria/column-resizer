@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 // ** This hook is used to resize the columns of the DataGrid component
 // It requires setting classes to the columns in the parent component
-// This can be done by using cellClassName and headerClassName props of the DataGrid component
+// This can be achieved by using cellClassName and headerClassName props of the DataGrid component
 // The classes should be in the format: colIndex-0, colIndex-1, colIndex-2, etc.
 
 const useColumnResizer = (loading, initialValues = {}) => {
@@ -11,7 +11,7 @@ const useColumnResizer = (loading, initialValues = {}) => {
   const isResizing = useRef(-1);
   const separatorRef = useRef(null);
 
-  const defaultMinWidth = 190;
+  const defaultMinWidth = 100;
   const defaultMaxWidth = 800;
 
   const adjustWidthColumn = (index, width) => {

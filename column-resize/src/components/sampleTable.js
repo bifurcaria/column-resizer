@@ -12,10 +12,10 @@ const SampleTable = () => {
 
 
     let columns = [
-        { field: 'id', headerName: 'ID', width: 100 },
-        { field: 'name', headerName: 'Name', width: 200 },
-        { field: 'email', headerName: 'Email', width: 250 },
-        { field: 'age', headerName: 'Age', width: 100 },
+        { field: 'id', headerName: 'ID'},
+        { field: 'name', headerName: 'Name'},
+        { field: 'email', headerName: 'Email'},
+        { field: 'age', headerName: 'Age'},
     ];
     // add classes to each column
     columns = columns.map((column, index) => {
